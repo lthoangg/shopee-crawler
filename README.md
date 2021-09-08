@@ -3,13 +3,14 @@ This is a crawl tool.
 
 ## Requirement
 ```env
-python>=3.8
+python>=3.7
 ```
 
 ## Install
 
 * Using `setup.py`
 ```
+git clone https://github.com/lthoangg/shopee-crawler
 python/python3 setup.py install
 ```
 
