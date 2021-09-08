@@ -3,7 +3,7 @@ This is a crawl tool.
 
 ## Requirement
 ```env
-python>=3.8
+python>=3.7
 ```
 
 ## Install
@@ -15,7 +15,7 @@ python/python3 setup.py install
 
 * Using `pip`
 ```
-pip install shopee_crawler
+pip install shopee-crawler
 ```
 
 ## How to use
