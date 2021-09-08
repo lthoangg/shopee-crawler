@@ -1,3 +1,4 @@
+import requests
 import random
 import time
 
@@ -24,3 +25,12 @@ def retry_with_backoff(retries=4, backoff_in_seconds=1):
                         x += 1
         return wrapper
     return rwb
+
+
+@retry_with_backoff()
+def curl(url: str, timeout: int=10) -> dict:
+    return requests.get(
+        url,
+        headers=get_header(),
+        timeout=timeout
+    ).json()
