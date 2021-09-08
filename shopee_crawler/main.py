@@ -4,7 +4,8 @@ import concurrent.futures
 from crawl_by_shop_url import (
     get_shop_info,
     get_total,
-    get_neccesary_data
+    get_neccesary_data,
+    get_all_data
 )
 
 
@@ -36,3 +37,6 @@ def crawl_by_shop_url(shop_url:str, limit=30, max_workers=8) -> json:
         logger.info(f"Successfully crawl {total_count} products from {shop_name}({shop_id})")
 
     return all_data
+
+if __name__ == "__main__":
+    print(crawl_by_shop_url("https://shopee.vn/abbie.oh"))

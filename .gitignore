@@ -1,3 +1,7 @@
 __pycache__
 .env
 .DS_Store
+
+*.egg-info
+
+dist
