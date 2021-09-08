@@ -27,7 +27,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='shopee_crawler-pkg-lthoangg',
-    version='0.0.5',
+    version='0.1.0',
     author='Lê Trọng Hoàng',
     author_email='letronghoang00@gmail.com',
     description='Crawler for shopee',
