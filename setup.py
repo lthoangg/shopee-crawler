@@ -26,20 +26,20 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='shopee_crawler',
-    version='0.0.1',
+    name='shopee_crawler-pkg-lthoangg',
+    version='0.0.5',
     author='Lê Trọng Hoàng',
     author_email='letronghoang00@gmail.com',
     description='Crawler for shopee',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/lthoangg/shopee-crawler",
+    packages=setuptools.find_packages(),
+    install_requires=reqs,
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    install_requires=reqs,
-    packages=setuptools.find_packages(),
     python_requires=">=3.7",  
 )
