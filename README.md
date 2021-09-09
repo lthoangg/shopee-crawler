@@ -24,7 +24,7 @@ pip install shopee-crawler
 ```python
 from shopee_crawler import crawl_by_shop_url
 
-data = crawl_by_shop_url('shop_url')
+data = crawl_by_shop_url(shop_url='shop_url')
 # print(data)
 ```
 
@@ -32,6 +32,14 @@ data = crawl_by_shop_url('shop_url')
 ```python
 from shopee_crawler import crawl_by_cat_url
 
-data = crawl_by_cat_url('cat_url')
+data = crawl_by_cat_url(cat_url='cat_url')
+# print(data)
+```
+
+* Crawl by keyword (search)
+```python
+from shopee_crawler import crawl_by_search
+
+data = crawl_by_search(keyword='keyword')
 # print(data)
 ```

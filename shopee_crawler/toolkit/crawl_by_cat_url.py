@@ -74,7 +74,7 @@ def get_neccesary_data(data: list) -> list:
 
     return results
 
-def crawl_by_cat_url(cat_url:str, limit:int=60, max_workers:int=8) -> list:
+def crawl_by_cat_url(cat_url:str, limit:int=60, max_workers:int=32) -> list:
 
     cat_id, cat_name = get_category_info(cat_url)
     total_count = get_total(cat_id)
@@ -94,6 +94,6 @@ def crawl_by_cat_url(cat_url:str, limit:int=60, max_workers:int=8) -> list:
     if length == total_count:
         logger.info(f"Successfully crawl all {total_count} products from {cat_name} ({cat_id})")
     elif length < total_count:
-        logger.info(f"Successfully crawl {total_count} products from {cat_name} ({cat_id})")
+        logger.info(f"Successfully crawl {length} products from {cat_name} ({cat_id})")
 
     return all_data
