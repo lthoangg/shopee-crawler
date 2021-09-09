@@ -1,20 +1,27 @@
 from .curl import curl
 from datetime import datetime
+import json
+import re
+import urllib.parse
+
 import concurrent.futures
 
 import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-def get_shop_info(shop_url):
-    shop_name = shop_url.split("/")[-1]
-    url = f"https://shopee.vn/api/v4/shop/get_shop_detail?username={shop_name}"
-    return curl(url)['data']['shopid'], shop_name
+
+def get_category_info(cat_url):
+    cat_url = urllib.parse.unquote(cat_url)
+    match = re.search(r'https://shopee.vn/(.+)-cat.(\d+)', cat_url)
+    cat_name = match.group(1)
+    cat_id = match.group(2)
+    return cat_id, cat_name
 
 def get_total(id):
-    url = 'https://shopee.vn/api/v4/search/search_items?by=pop&limit=1&match_id={}&newest=0&order=desc&page_type=shop&scenario=PAGE_OTHERS&version=2'.format(id)
+    url = 'https://shopee.vn/api/v4/search/search_items?by=relevancy&limit=60&match_id={}&newest=0&order=desc&page_type=search&scenario=PAGE_OTHERS&version=2'.format(id)
 
-    return curl(url)['total_count']
+    return json.loads(curl(url)['search_tracking'])["total_count"]
 
 def get_all_data(url: str) -> list:
     data = curl(url)
@@ -67,16 +74,16 @@ def get_neccesary_data(data: list) -> list:
 
     return results
 
-def crawl_by_shop_url(shop_url:str, limit:int=30, max_workers:int=8) -> list:
+def crawl_by_cat_url(cat_url:str, limit:int=60, max_workers:int=8) -> list:
 
-    shop_id, shop_name = get_shop_info(shop_url)
-    total_count = get_total(shop_id)
-    logger.info(f"There are {total_count} products in {shop_name}({shop_id})")
+    cat_id, cat_name = get_category_info(cat_url)
+    total_count = get_total(cat_id)
+    logger.info(f"There are {total_count} products in {cat_name}({cat_id})")
     futures = []
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         for newest in range(0, total_count, limit):
-            url = 'https://shopee.vn/api/v4/search/search_items?by=pop&limit={}&match_id={}&newest={}&order=desc&page_type=shop&scenario=PAGE_OTHERS&version=2'.format(limit, shop_id, newest)
+            url = 'https://shopee.vn/api/v4/search/search_items?by=relevancy&limit={}&match_id={}&newest={}&order=desc&page_type=search&scenario=PAGE_OTHERS&version=2'.format(limit, cat_id, newest)
             futures.append(executor.submit(get_all_data, url))
 
     for future in concurrent.futures.as_completed(futures):
@@ -85,8 +92,8 @@ def crawl_by_shop_url(shop_url:str, limit:int=30, max_workers:int=8) -> list:
     all_data = get_neccesary_data(results)
     length = len(all_data)
     if length == total_count:
-        logger.info(f"Successfully crawl all {total_count} products from {shop_name}({shop_id})")
+        logger.info(f"Successfully crawl all {total_count} products from {cat_name} ({cat_id})")
     elif length < total_count:
-        logger.info(f"Successfully crawl {total_count} products from {shop_name}({shop_id})")
+        logger.info(f"Successfully crawl {total_count} products from {cat_name} ({cat_id})")
 
     return all_data

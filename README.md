@@ -16,13 +16,22 @@ python/python3 setup.py install
 
 * Using `pip`
 ```
-pip install shopee_crawler
+pip install shopee-crawler
 ```
 
 ## How to use
+* Crawl by shop url
 ```python
 from shopee_crawler import crawl_by_shop_url
 
 data = crawl_by_shop_url('shop_url')
-print(data)
+# print(data)
+```
+
+* Crawl by category url
+```python
+from shopee_crawler import crawl_by_cat_url
+
+data = crawl_by_cat_url('cat_url')
+# print(data)
 ```
