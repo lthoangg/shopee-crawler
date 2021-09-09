@@ -43,3 +43,30 @@ from shopee_crawler import crawl_by_search
 data = crawl_by_search(keyword='keyword')
 # print(data)
 ```
+
+## Usage
+- About 12000 rows (products) in 2-3 seconds (32 workers)
+
+- About 12000 rows (products) in 5-6 seconds (16 workers)
+
+## Test yourself
+
+```python
+import time
+from shopee_crawler.crawler import crawl_by_search
+
+keyword='điện thoại samsung'
+
+# Start time
+start = time.time()
+
+# Crawl
+crawl_by_search(keyword=keyword)
+
+# End time
+end = time.time()
+
+# Time crawling
+print("Time : ",end - start, "seconds")
+
+```
