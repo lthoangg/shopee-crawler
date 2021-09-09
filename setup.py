@@ -26,8 +26,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='shopee_crawler-pkg-lthoangg',
-    version='0.1.0',
+    name='shopee_crawler',
+    version='0.1.1',
     author='Lê Trọng Hoàng',
     author_email='letronghoang00@gmail.com',
     description='Crawler for shopee',

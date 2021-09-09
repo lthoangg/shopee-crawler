@@ -1,3 +1,4 @@
-from shopee_crawler.crawler import crawl_by_shop_url
+from shopee_crawler.crawler import crawl_by_cat_url, crawl_by_shop_url
 
-print(crawl_by_shop_url('https://shopee.vn/abbie.oh'))
+
+crawl_by_cat_url('https://shopee.vn/%C4%90i%E1%BB%87n-Tho%E1%BA%A1i-Ph%E1%BB%A5-Ki%E1%BB%87n-cat.11036030')
