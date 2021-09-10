@@ -45,9 +45,9 @@ data = crawl_by_search(keyword='keyword')
 ```
 
 ## Usage
-- About 12000 rows (products) in 2-3 seconds (32 workers)
+- About 12.000 rows (products) in 2-3 seconds (32 workers)
 
-- About 12000 rows (products) in 5-6 seconds (16 workers)
+- About 12.000 rows (products) in 5-6 seconds (16 workers)
 
 ## Test yourself
 
