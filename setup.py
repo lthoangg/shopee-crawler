@@ -27,13 +27,13 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='shopee_crawler',
-    version='0.1.3',
+    version='0.1.4',
     author='Lê Trọng Hoàng',
     author_email='letronghoang00@gmail.com',
     description='Crawler for shopee',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/lthoangg/shopee-crawler",
+    url= 'https://github.com/lthoangg/shopee-crawler',
     packages=setuptools.find_packages(),
     install_requires=reqs,
     classifiers=[
@@ -41,5 +41,5 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=">=3.7",  
+    python_requires='>=3.7',  
 )

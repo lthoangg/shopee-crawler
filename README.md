@@ -44,10 +44,18 @@ data = crawl_by_search(keyword='keyword')
 # print(data)
 ```
 
-## Usage
-- About 12000 rows (products) in 2-3 seconds (32 workers)
+* Crawl all categories
+```python
+from shopee_crawler import crawl_cat_list
 
-- About 12000 rows (products) in 5-6 seconds (16 workers)
+data = crawl_cat_list()
+# print(data)
+```
+
+## Usage
+- About 12.000 rows (products) in 2-3 seconds (32 workers)
+
+- About 12.000 rows (products) in 5-6 seconds (16 workers)
 
 ## Test yourself
 

@@ -8,7 +8,7 @@ def get_header():
         'content-type': 'text'
     }
 
-def retry_with_backoff(retries=4, backoff_in_seconds=1):
+def retry_with_backoff(retries=3, backoff_in_seconds=1):
     def rwb(func):
         def wrapper(url):
             x = 0

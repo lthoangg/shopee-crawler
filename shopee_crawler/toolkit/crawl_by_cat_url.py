@@ -45,7 +45,7 @@ def get_neccesary_data(data: list) -> list:
                     'product_image': r'https://cf.shopee.vn/file/{}_tn'.format(item['image']),
                     'product_link': r'https://shopee.vn/{}-i.{}.{}'.format(item['name'], item['shopid'], item['itemid']),
                     'category_id': item['catid'],
-                    # 'label_ids': item['label_ids'],
+                    'label_ids': item['label_ids'],
                     'product_brand': item['brand'],
                     'product_price': item['price'] if item['raw_discount'] == 0 else item['price_before_discount'],
                     'product_discount': item['raw_discount'],
