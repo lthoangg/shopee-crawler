@@ -1,6 +1,5 @@
 import os
 import setuptools
-from configparser import ConfigParser
 
 try:
     # pip >=20
@@ -26,20 +25,15 @@ except:
 with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
-
-parser = ConfigParser()
-parser.read('config.ini')
-config = parser['setup']
-
 setuptools.setup(
-    name=config['name'],
-    version=config['version'],
-    author=config['author'],
-    author_email=config['author_email'],
-    description=config['description'],
+    name='shopee_crawler',
+    version='0.1.4',
+    author='Lê Trọng Hoàng',
+    author_email='letronghoang00@gmail.com',
+    description='Crawler for shopee',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url=config["url"],
+    url= 'https://github.com/lthoangg/shopee-crawler',
     packages=setuptools.find_packages(),
     install_requires=reqs,
     classifiers=[
@@ -47,5 +41,5 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires=config['python_requires'],  
+    python_requires='>=3.7',  
 )
