@@ -1,6 +1,11 @@
 # Shopee-crawler
-This is a crawl tool.
 
+This is a crawling tool.
+
+High performance.
+
+Easy to use.
+***
 ## Requirement
 ```env
 python>=3.7
