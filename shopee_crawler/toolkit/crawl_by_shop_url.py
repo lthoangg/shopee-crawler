@@ -1,15 +1,25 @@
 from .curl import curl
 from datetime import datetime
 import concurrent.futures
+import re
+
 
 import logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def get_shop_info(shop_url):
-    shop_name = shop_url.split("/")[-1]
-    url = f"https://shopee.vn/api/v4/shop/get_shop_detail?username={shop_name}"
-    return curl(url)['data']['shopid'], shop_name
+    try:
+        match = re.match('https?:\/\/.+?\/(.*)', shop_url)
+        shop_name = match.group(1).split("?")[0].split('/')[0]
+        url = f"https://shopee.vn/api/v4/shop/get_shop_detail?username={shop_name}"
+        return curl(url)['data']['shopid'], shop_name
+    except Exception:
+        match = re.match('https?:\/\/.+?\/shop\/(\d+)\/?.+', shop_url)
+        shop_id = match.group(1)
+        url = f"https://shopee.vn/api/v4/shop/get_shop_detail?shopid={shop_id}"
+        return shop_id, curl(url)['data']['name']
+
 
 def get_total(id):
     url = 'https://shopee.vn/api/v4/search/search_items?by=pop&limit=1&match_id={}&newest=0&order=desc&page_type=shop&scenario=PAGE_OTHERS&version=2'.format(id)
