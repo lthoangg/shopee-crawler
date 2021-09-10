@@ -1,5 +1,5 @@
 import time
-from shopee_crawler.crawler import (
+from shopee_crawler import (
     crawl_by_cat_url, 
     crawl_by_shop_url, 
     crawl_by_search,
