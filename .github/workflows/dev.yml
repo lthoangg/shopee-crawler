@@ -29,5 +29,9 @@ jobs:
       run: |
         python -m unittest
 
-    - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
+    - name: pull-request-action
+      uses: vsoch/pull-request-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        PULL_REQUEST_FROM_BRANCH: 'dev'
+        PULL_REQUEST_BRANCH: "main"
