@@ -26,14 +26,14 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name='shopee_crawler',
+    name='shopee_crawler_indonesia',
     version='0.1.7',
-    author='Lê Trọng Hoàng',
-    author_email='letronghoang00@gmail.com',
-    description='Crawler for shopee',
+    author='Patrick Hermawan (forked from Lê Trọng Hoàng)',
+    author_email='patrick.hermawan@outlook.com',
+    description='Crawler for Shopee Indonesia',
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url= 'https://github.com/lthoangg/shopee-crawler',
+    url= 'https://github.com/ptrkhh/shopee-crawler',
     packages=setuptools.find_packages(),
     install_requires=reqs,
     classifiers=[

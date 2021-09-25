@@ -15,7 +15,7 @@ python>=3.7
 
 * Using `setup.py`
 ```
-git clone https://github.com/lthoangg/shopee-crawler
+git clone https://github.com/ptrkhh/shopee-crawler
 python/python3 setup.py install
 ```
 
