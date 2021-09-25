@@ -27,10 +27,10 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setuptools.setup(
     name='shopee_crawler',
-    version='0.1.7',
+    version='0.2.0',
     author='Lê Trọng Hoàng',
     author_email='letronghoang00@gmail.com',
-    description='Crawler for shopee',
+    description='Crawler for Shopee from all country',
     long_description=long_description,
     long_description_content_type="text/markdown",
     url= 'https://github.com/lthoangg/shopee-crawler',

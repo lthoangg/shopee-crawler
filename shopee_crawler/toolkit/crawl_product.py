@@ -19,7 +19,7 @@ def get_all_data(url: str) -> list:
 
     return results
 
-def get_neccesary_data(data: list) -> list:
+def get_neccesary_data(origin, data: list) -> list:
     results = []
     try:
         for item in data:
@@ -27,8 +27,8 @@ def get_neccesary_data(data: list) -> list:
                 {
                     'product_id': item['itemid'],
                     'product_name': item['name'],
-                    'product_image': r'https://cf.shopee.vn/file/{}_tn'.format(item['image']),
-                    'product_link': r'https://shopee.vn/{}-i.{}.{}'.format(item['name'], item['shopid'], item['itemid']),
+                    'product_image': r'https://cf.{}/file/{}_tn'.format(origin, item['image']),
+                    'product_link': r'https://{}/{}-i.{}.{}'.format(origin, item['name'], item['shopid'], item['itemid']),
                     'category_id': item['catid'],
                     'label_ids': item['label_ids'],
                     'product_brand': item['brand'],

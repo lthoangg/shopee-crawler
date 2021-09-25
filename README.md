@@ -1,6 +1,6 @@
 # Shopee-crawler
 
-This is a crawling tool.
+This is a light crawling tool.
 
 High performance.
 
@@ -25,35 +25,20 @@ pip install shopee-crawler
 ```
 
 ## How to use
-* Crawl by shop url
+Examples:
 ```python
-from shopee_crawler import crawl_by_shop_url
+from shopee_crawler import Crawler
 
-data = crawl_by_shop_url(shop_url='shop_url')
-# print(data)
-```
+crawler = Crawler()
+crawler.set_origin(origin="shopee.vn") # Input your root Shopee website of your country that you want to crawl
 
-* Crawl by category url
-```python
-from shopee_crawler import crawl_by_cat_url
+data = crawler.crawl_by_shop_url(shop_url='shop_url')
 
-data = crawl_by_cat_url(cat_url='cat_url')
-# print(data)
-```
+data = crawler.crawl_by_cat_url(cat_url='cat_url')
 
-* Crawl by keyword (search)
-```python
-from shopee_crawler import crawl_by_search
+data = crawler.crawl_by_search(keyword='keyword')
 
-data = crawl_by_search(keyword='keyword')
-# print(data)
-```
-
-* Crawl all categories
-```python
-from shopee_crawler import crawl_cat_list
-
-data = crawl_cat_list()
+data = crawler.crawl_cat_list()
 # print(data)
 ```
 
@@ -66,15 +51,18 @@ data = crawl_cat_list()
 
 ```python
 import time
-from shopee_crawler.crawler import crawl_by_search
+from shopee_crawler import Crawler
 
-keyword='điện thoại samsung'
+crawler = Crawler()
+crawler.set_origin(origin="shopee.vn")
+
+keyword = 'điện thoại samsung'
 
 # Start time
 start = time.time()
 
 # Crawl
-crawl_by_search(keyword=keyword)
+data = crawler.crawl_by_search(keyword=keyword)
 
 # End time
 end = time.time()
