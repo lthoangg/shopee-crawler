@@ -29,5 +29,4 @@ jobs:
         pip install -r requirements.txt
     - name: Test with pytest
       run: |
-        conda install unittest
-        python test.py
+        python -m unittest
