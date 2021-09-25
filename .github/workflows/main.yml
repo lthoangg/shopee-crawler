@@ -13,9 +13,12 @@ jobs:
       max-parallel: 5
 
     steps:
-    - name: Publish distribution 📦 to PyPI
-      if: startsWith(github.ref, 'refs/tags')
-      uses: pypa/gh-action-pypi-publish@master
+    - name: Create packages
+      run: |
+        python setup.py build
+    - name: Publish package
+      if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
+      uses: pypa/gh-action-pypi-publish@release/v1
       with:
-        username: __token__
+        user: __token__
         password: ${{ secrets.PYPI_API_TOKEN }}
