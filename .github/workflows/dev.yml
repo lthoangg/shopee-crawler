@@ -1,15 +1,13 @@
 name: Python Package using Conda
 
 on:
-  push:
-    branches:
-      - dev
   pull_request:
     branches:
       - main
 
 jobs:
-  build-linux:
+  build-linux-n-publish:
+    name: Build and publish Python 3 distributions 📦 to PyPI
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 5
@@ -30,3 +28,10 @@ jobs:
     - name: Test with pytest
       run: |
         python -m unittest
+
+    - name: Publish distribution 📦 to PyPI
+      if: startsWith(github.ref, 'refs/tags')
+      uses: lthoangg/shopee-crawler@main
+      with:
+        username: __token__
+        password: ${{ secrets.PYPI_API_TOKEN }}
