@@ -7,7 +7,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def get_total():
-    url = "https://banhang.shopee.vn/help/api/v3/global_category/list/?page=1&size=16"
+    url = "https://banhang.shopee.co.id/help/api/v3/global_category/list/?page=1&size=16"
 
     return curl(url)['data']['total']
 
@@ -32,7 +32,7 @@ def crawl_cat_list(limit:int=16, max_workers:int=32) -> list:
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         for page in range(1, pages+1):
-            url = "https://banhang.shopee.vn/help/api/v3/global_category/list/?page={}&size={}".format(page, limit)
+            url = "https://banhang.shopee.co.id/help/api/v3/global_category/list/?page={}&size={}".format(page, limit)
             futures.append(executor.submit(get_all_data, url))
 
     for future in concurrent.futures.as_completed(futures):

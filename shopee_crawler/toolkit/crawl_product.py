@@ -27,8 +27,8 @@ def get_neccesary_data(data: list) -> list:
                 {
                     'product_id': item['itemid'],
                     'product_name': item['name'],
-                    'product_image': r'https://cf.shopee.vn/file/{}_tn'.format(item['image']),
-                    'product_link': r'https://shopee.vn/{}-i.{}.{}'.format(item['name'], item['shopid'], item['itemid']),
+                    'product_image': r'https://cf.shopee.co.id/file/{}_tn'.format(item['image']),
+                    'product_link': r'https://shopee.co.id/{}-i.{}.{}'.format(item['name'], item['shopid'], item['itemid']),
                     'category_id': item['catid'],
                     'label_ids': item['label_ids'],
                     'product_brand': item['brand'],

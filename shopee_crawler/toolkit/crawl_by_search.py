@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def get_total(keyword):
-    url = "https://shopee.vn/api/v4/search/search_items?by=relevancy&keyword={}&limit=60&newest=0&order=desc&page_type=search&scenario=PAGE_GLOBAL_SEARCH&version=2".format(keyword)
+    url = "https://shopee.co.id/api/v4/search/search_items?by=relevancy&keyword={}&limit=60&newest=0&order=desc&page_type=search&scenario=PAGE_GLOBAL_SEARCH&version=2".format(keyword)
 
     return curl(url)['total_count']
 
@@ -25,7 +25,7 @@ def crawl_by_search(keyword:str, limit:int=60, max_workers:int=32) -> list:
     results = []
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         for newest in range(0, total_count, limit):
-            url = "https://shopee.vn/api/v4/search/search_items?by=relevancy&keyword={}&limit={}&newest={}&order=desc&page_type=search&scenario=PAGE_GLOBAL_SEARCH&version=2".format(temp, limit, newest)
+            url = "https://shopee.co.id/api/v4/search/search_items?by=relevancy&keyword={}&limit={}&newest={}&order=desc&page_type=search&scenario=PAGE_GLOBAL_SEARCH&version=2".format(temp, limit, newest)
             futures.append(executor.submit(get_all_data, url))
 
     for future in concurrent.futures.as_completed(futures):
