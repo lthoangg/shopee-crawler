@@ -7,7 +7,11 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 def get_total(origin):
-    url = f"https://banhang.{origin}/help/api/v3/global_category/list/?page=1&size=16"
+    if origin.split('.')[-1] == "vn":
+        url = f"https://banhang.{origin}/help/api/v3/global_category/list/?page=1&size=16"
+    else:
+        url = f"https://seller.{origin}/help/api/v3/global_category/list/?page=1&size=16"
+        
 
     return curl(url)['data']['total']
 
