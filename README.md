@@ -11,6 +11,21 @@ Easy to use.
 python>=3.7
 ```
 
+## Sponsor
+
+SadCaptcha has paid to be here and I have no affiliation with them.
+
+<div align="center">
+  <a href="https://www.sadcaptcha.com/shopee-captcha-solver?ref=letrong" target="_blank">
+    <img src="https://sadcaptcha.b-cdn.net/shopee-image-crawl-captcha.webp" width="150" alt="Shopee Captcha Solver">
+    <img src="https://sadcaptcha.b-cdn.net/shopee-puzzle-slide-captcha.webp" width="150" alt="Shopee Captcha Solver">
+    <br/>
+    <div>
+         <b>Shopee Captcha Solver: </b> Bypass any Shopee captcha code-free.<br> Scale your Shopee automation and get unblocked with SadCaptcha.
+    </div>
+  </a>
+</div>
+
 ## Install
 
 * Using `setup.py`
